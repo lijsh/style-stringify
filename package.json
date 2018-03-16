@@ -1,0 +1,45 @@
+{
+  "name": "style-stringify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && jest",
+    "lint": "eslint index.js"
+  },
+  "keywords": [],
+  "author": "lijsh",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
+    "jest-cli": "^23.0.0-alpha.0"
+  },
+  "dependencies": {
+    "class-of": "^0.1.1",
+    "decamelize": "^2.0.0"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
