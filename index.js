@@ -1,6 +1,3 @@
-import classOf from 'class-of'
-import decamelize from 'decamelize'
-
 const numericProperties = [
   'height', 'width', 'top', 'left', 'right', 'bottom', 'fontSize', 'maxHeight', 'maxWidth', 'lineHeight',
   'margin', 'marginTop', 'marginLeft', 'marginRight', 'marginBottom',
@@ -8,9 +5,10 @@ const numericProperties = [
 ]
 
 const stylify = (style, { suffix = 'px' } = {}) =>
-  Object.entries(style).reduce((styleStr, [key, value]) => {
-    const needSuffix = numericProperties.includes(key) && classOf(value) === 'number'
-    const decamelizedKey = decamelize(key, '-')
+  Object.keys(style).reduce((styleStr, key) => {
+    const value = style[key]
+    const needSuffix = numericProperties.includes(key) && typeof value === 'number'
+    const decamelizedKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
     return `${styleStr}${decamelizedKey}: ${value}${needSuffix ? suffix : ''}; `
   }, '')
 

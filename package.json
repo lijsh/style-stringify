@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && jest",
-    "lint": "eslint index.js"
+    "lint": "eslint index.js",
+    "build": "cross-env NODE_ENV=production rollup -c -o dist/style-stringify.min.js"
   },
   "keywords": [],
   "author": "lijsh",
@@ -13,16 +14,17 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.4",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jest": "^21.15.0",
-    "jest-cli": "^23.0.0-alpha.0"
+    "jest-cli": "^23.0.0-alpha.0",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-uglify": "^3.0.0"
   },
-  "dependencies": {
-    "class-of": "^0.1.1",
-    "decamelize": "^2.0.0"
-  },
+  "dependencies": {},
   "babel": {
     "env": {
       "test": {
